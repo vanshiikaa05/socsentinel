@@ -1323,7 +1323,7 @@ checkBackendAvailability();
 // Backend availability check (College / Lab mode)
 async function checkBackendAvailability() {
   try {
-    const res = await fetch("http://localhost:5000/api/lab/test");
+    const res = await fetch("https://socsentinel-backend.onrender.com/api/lab/test");
     if (!res.ok) throw new Error("Backend not reachable");
 
     const collegeBtn = document.getElementById("college-option");
@@ -1418,7 +1418,7 @@ async function checkBackendAvailability() {
     }
 step2Next.addEventListener('click', async () => {
   if (selectedEnv === "college") {
-    await fetch("http://localhost:5000/api/lab/setup", {
+    await fetch("https://socsentinel-backend.onrender.com/api/lab/setup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -1543,7 +1543,7 @@ async function startSimulation() {
   // 🔗 College/Lab: get attacks from backend
   if (selectedEnv === "college") {
     try {
-      const res = await fetch("http://localhost:5000/api/lab/attacks");
+      const res = await fetch("https://socsentinel-backend.onrender.com/api/lab/attacks");
       const data = await res.json();
 
       // Clear all attack checkboxes
